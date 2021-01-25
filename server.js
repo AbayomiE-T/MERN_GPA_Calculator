@@ -2,6 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
+const courses = require('./routes/api/courses');
+
 const app = express();
 
 // Bodyparser Middleware
@@ -15,6 +17,8 @@ mongoose
     .connect(db)
     .then(() => console.log("MonogDB Connected..."))
     .catch((err) => console.log(err));
+
+app.use('/api/courses', courses);
 
 const port = process.env.PORT || 5000;
 
