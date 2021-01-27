@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const auth = require('../../middleware/auth');
 
 //Course model
 const Course = require('../../models/Course');
@@ -16,9 +17,9 @@ router.get('/', (req, res) => {
 
 // @route POST api/items
 // @desc Create a Course
-// @access Public
+// @access private
 // @where the body parser dependency comes in
-router.post('/', (req, res) => {
+router.post('/', auth, (req, res) => {
     const newCourse = new Course({
         name: req.body.name,
         courseCode: req.body.courseCode,
@@ -32,7 +33,7 @@ router.post('/', (req, res) => {
 
 // @route DELETE api/items/:id
 // @desc DELETE a Course
-// @access Public
+// @access Private
 router.delete('/:id', (req, res) => {
     Course.findById(req.params.id)
         .then(item => item.remove().then(() => res.json({ success: true })))
