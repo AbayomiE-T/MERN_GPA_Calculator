@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { addCourse } from '../actions/courseActions'
-import { v4 as uuid } from 'uuid';
 import { connect } from 'react-redux';
 
 const AddCourse = ({ addCourse }) => {
@@ -12,7 +11,7 @@ const AddCourse = ({ addCourse }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const course = { id: uuid(), name, courseCode, creditValue, grade, gradePoint }
+        const course = { name, courseCode, creditValue, grade, gradePoint }
 
         addCourse(course);
         setName('');

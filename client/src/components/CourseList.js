@@ -10,17 +10,16 @@ const CourseList = ({ courses, getCourses, deleteCourse }) => {
         getCourses();
     }, [getCourses, deleteCourse])
 
-    const courseList = courses.map(({ id, name, courseCode, creditValue, grade, gradePoint }) => {
+    const courseList = courses.map(({ _id, name, courseCode, creditValue, grade, gradePoint }) => {
         return (
-            <div key={id}>
+            <div key={_id}>
                 <p>{name}</p>
                 <p>{courseCode}</p>
                 <p>{creditValue}</p>
                 <p>{grade}</p>
                 <p>{gradePoint}</p>
                 <button onClick={() => {
-                    deleteCourse(id);
-                    console.log('hey');
+                    deleteCourse(_id);
                 }} style={{ color: 'red' }}>&times;</button>
             </div>
         )

@@ -22,6 +22,10 @@ const CourseSchema = new Schema({
     gradePoint: {
         type: Number,
         required: true
+    },
+    date: {
+        type: Date,
+        default: Date.now
     }
 });
 

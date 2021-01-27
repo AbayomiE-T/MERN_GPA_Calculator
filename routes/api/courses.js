@@ -10,6 +10,7 @@ const Course = require('../../models/Course');
 
 router.get('/', (req, res) => {
     Course.find()
+        .sort({ date: -1 })
         .then(items => res.json(items))
 })
 
