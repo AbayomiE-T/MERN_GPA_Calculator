@@ -1,31 +1,25 @@
+import axios from 'axios'
+
 import { GET_COURSES, ADD_COURSE, DELETE_COURSE, COURSES_LOADING } from './types'
 
 export const getCourses = () => (dispatch) => {
 
     dispatch(setCoursesLoading());
 
-    fetch('/api/courses')
-        .then((res) => res.json())
-        .then((data) => {
+    axios.get('/api/courses')
+        .then((res) => {
             dispatch({
                 type: GET_COURSES,
-                data
+                data: res.data
             })
         })
 }
 
 export const addCourse = (course) => (dispatch) => {
 
-    fetch('/api/courses', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(course)
-    })
-        .then(res => res.json())
-        .then(data => {
-            console.log('success', data);
+    axios.post('/api/courses', course)
+        .then(res => {
+            console.log('success', res.data);
             dispatch({
                 type: ADD_COURSE,
                 data: course
@@ -35,18 +29,15 @@ export const addCourse = (course) => (dispatch) => {
 }
 
 export const deleteCourse = (id) => (dispatch) => {
-    fetch(`/api/courses/${id}`, {
-        method: 'DELETE'
-    })
-        .then(res => res.json())
-        .then(data => {
-            console.log('success', data);
+    axios.delete(`/api/courses/${id}`)
+        .then(res => {
+            console.log('success', res.data);
             dispatch({
                 type: DELETE_COURSE,
                 data: id
             })
         })
-        .catch((err) => console.log('Error', err))
+        .catch((err) => console.log(err))
 }
 
 export const setCoursesLoading = () => (dispatch) => {

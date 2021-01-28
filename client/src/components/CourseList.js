@@ -2,8 +2,6 @@ import React, { useEffect } from 'react';
 import { getCourses, deleteCourse } from '../actions/courseActions'
 import { connect } from 'react-redux';
 
-import AddCourse from './AddCourse'
-
 const CourseList = ({ courses, getCourses, deleteCourse }) => {
 
     useEffect(() => {
@@ -26,7 +24,6 @@ const CourseList = ({ courses, getCourses, deleteCourse }) => {
     })
     return (
         <div>
-            <AddCourse />
             <div>
                 {courseList}
             </div>
