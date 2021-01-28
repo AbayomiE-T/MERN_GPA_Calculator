@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
+import { Link, Redirect } from 'react-router-dom'
+
 import { connect } from 'react-redux';
 import { register } from '../../actions/authActions'
 import { clearErrors } from '../../actions/errorActions'
@@ -30,32 +32,35 @@ const Register = ({ isAuthenticated, error, register, clearErrors }) => {
     }
 
     return (
-        <>
-            {msg ? <p>{msg}</p> : ''}
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    placeholder="Name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                />
+        isAuthenticated ? <Redirect to="/" /> :
+            <>
+                {msg ? <p>{msg}</p> : ''}
+                <form onSubmit={handleSubmit}>
+                    <input
+                        type="text"
+                        placeholder="Name"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                    />
 
-                <input
-                    type="text"
-                    placeholder="Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                />
+                    <input
+                        type="text"
+                        placeholder="Email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
 
-                <input
-                    type="text"
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-                <button>Register</button>
-            </form>
-        </>
+                    <input
+                        type="text"
+                        placeholder="Password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                    <button>Register</button>
+                    <p>Already have an account?
+                <Link to="/login">Login</Link></p>
+                </form>
+            </>
     )
 }
 
