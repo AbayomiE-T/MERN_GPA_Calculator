@@ -32,25 +32,30 @@ const Login = ({ isAuthenticated, error, login, clearErrors }) => {
     return (
         isAuthenticated ? <Redirect to="/" /> :
             <>
-                {msg ? <p>{msg}</p> : ''}
-                <form onSubmit={handleSubmit}>
-                    <input
-                        type="text"
-                        placeholder="Email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
+                <section className="login-box">
+                    <div className="vertical-box">
 
-                    <input
-                        type="text"
-                        placeholder="Password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                    <button>Login</button>
-                    <p>Don't have an account?
+                    </div>
+                    {msg ? <p>{msg}</p> : ''}
+                    <form onSubmit={handleSubmit}>
+                        <input
+                            type="text"
+                            placeholder="Email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+
+                        <input
+                            type="text"
+                            placeholder="Password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                        <button>Login</button>
+                        <p>Don't have an account?
                 <Link to="/register">Register</Link></p>
-                </form>
+                    </form>
+                </section>
             </>
     )
 }

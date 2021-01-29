@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { addCourse } from '../actions/courseActions'
 import { connect } from 'react-redux';
 
+import Navbar from './Navbar';
+
 const AddCourse = ({ addCourse, user }) => {
     const [name, setName] = useState('');
     const [courseCode, setCode] = useState('');
@@ -23,6 +25,7 @@ const AddCourse = ({ addCourse, user }) => {
 
     return (
         <>
+            <Navbar />
             <h1>Add Course</h1>
             <form onSubmit={handleSubmit}>
                 <input

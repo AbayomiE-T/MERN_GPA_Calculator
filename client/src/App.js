@@ -1,4 +1,3 @@
-import Navbar from './components/Navbar'
 import Register from './components/auth/Register'
 import CourseList from './components/CourseList'
 import { useEffect } from 'react';
@@ -21,7 +20,6 @@ function App() {
     <Provider store={store}>
       <BrowserRouter>
         <div className="App">
-          <Navbar />
           <Switch>
             <PrivateRoute exact path="/" component={AddCourse} />
             <PrivateRoute path="/courses" component={CourseList} />

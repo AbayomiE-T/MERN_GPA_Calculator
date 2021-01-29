@@ -2,11 +2,12 @@ import React, { useEffect } from 'react';
 import { getCourses, deleteCourse } from '../actions/courseActions'
 import { connect } from 'react-redux';
 
+import Navbar from './Navbar';
+
 const CourseList = ({ courses, getCourses, deleteCourse, user }) => {
 
     useEffect(() => {
         if (user) {
-            console.log(user, user._id);
             getCourses(user._id);
         }
 
@@ -28,6 +29,7 @@ const CourseList = ({ courses, getCourses, deleteCourse, user }) => {
     }) : (<p> Loading courses</p>)
     return (
         <div>
+            <Navbar />
             <div>
                 {courseList}
             </div>
