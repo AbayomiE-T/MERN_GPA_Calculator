@@ -4,6 +4,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+html, body{
+  overflow-y: hidden;
+}
+
 *{
   margin: 0px;
   padding: 0px;

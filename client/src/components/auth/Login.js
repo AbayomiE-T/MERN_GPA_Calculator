@@ -34,27 +34,41 @@ const Login = ({ isAuthenticated, error, login, clearErrors }) => {
             <>
                 <section className="login-box">
                     <div className="vertical-box">
-
+                        <h1>Welcome Back!</h1>
+                        <p>Sign in and take a look at your current GPA and course history, or update your record.</p>
                     </div>
-                    {msg ? <p>{msg}</p> : ''}
-                    <form onSubmit={handleSubmit}>
-                        <input
-                            type="text"
-                            placeholder="Email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                        />
 
-                        <input
-                            type="text"
-                            placeholder="Password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                        />
-                        <button>Login</button>
-                        <p>Don't have an account?
-                <Link to="/register">Register</Link></p>
-                    </form>
+                    <div className="signup-content">
+                        <div className="form-wrapper">
+                            <h1 className="highlight">Sign in</h1>
+                            <p>Don't have an account?&nbsp;
+                <Link className="highlight" to="/register">Register</Link>
+                            </p>
+                            {msg ? <p>{msg}</p> : ''}
+                            <form onSubmit={handleSubmit}>
+                                <div className="form-item">
+                                    <input
+                                        type="text"
+                                        placeholder="Email"
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
+                                    />
+                                </div>
+                                <div className="form-item">
+
+                                    <input
+                                        type="text"
+                                        placeholder="Password"
+                                        value={password}
+                                        onChange={(e) => setPassword(e.target.value)}
+                                    />
+                                </div>
+                                <div className="form-item">
+                                    <button>Login</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </section>
             </>
     )
