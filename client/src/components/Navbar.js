@@ -2,12 +2,14 @@ import React from 'react'
 import { Link } from "react-router-dom"
 
 import { logout } from '../actions/authActions'
+import { clearCourses } from '../actions/courseActions'
 import { connect } from 'react-redux';
 
-const Navbar = ({ isAuthenticated, user, logout }) => {
+const Navbar = ({ isAuthenticated, user, logout, clearCourses }) => {
 
     const handleClick = () => {
         logout();
+        clearCourses();
     }
 
     const authLinks = (
@@ -61,4 +63,4 @@ const mapStateToProps = (state) => ({
     user: state.auth.user
 });
 
-export default connect(mapStateToProps, { logout })(Navbar)
+export default connect(mapStateToProps, { logout, clearCourses })(Navbar)

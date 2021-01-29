@@ -1,14 +1,14 @@
 import axios from 'axios'
 
-import { GET_COURSES, ADD_COURSE, DELETE_COURSE, COURSES_LOADING } from './types'
+import { GET_COURSES, ADD_COURSE, DELETE_COURSE, COURSES_LOADING, CLEAR_COURSES } from './types'
 import { tokenConfig } from './authActions';
 import { returnErrors } from './errorActions'
 
-export const getCourses = () => (dispatch) => {
+export const getCourses = (id) => (dispatch) => {
 
     dispatch(setCoursesLoading());
 
-    axios.get('/api/courses')
+    axios.get(`/api/courses/${id}`)
         .then((res) => {
             dispatch({
                 type: GET_COURSES,
@@ -43,6 +43,12 @@ export const deleteCourse = (id) => (dispatch, getState) => {
         })
         .catch(err =>
             dispatch(returnErrors(err.response.data, err.response.status)));
+}
+
+export const clearCourses = () => dispatch => {
+    dispatch({
+        type: CLEAR_COURSES
+    })
 }
 
 export const setCoursesLoading = () => (dispatch) => {

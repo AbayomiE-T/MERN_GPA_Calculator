@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { addCourse } from '../actions/courseActions'
 import { connect } from 'react-redux';
 
-const AddCourse = ({ addCourse }) => {
+const AddCourse = ({ addCourse, user }) => {
     const [name, setName] = useState('');
     const [courseCode, setCode] = useState('');
     const [creditValue, setValue] = useState('');
@@ -11,7 +11,7 @@ const AddCourse = ({ addCourse }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const course = { name, courseCode, creditValue, grade, gradePoint }
+        const course = { name, courseCode, creditValue, grade, gradePoint, user_id: user._id }
 
         addCourse(course);
         setName('');
@@ -76,4 +76,8 @@ const AddCourse = ({ addCourse }) => {
     )
 }
 
-export default connect(null, { addCourse })(AddCourse)
+const mapStateToProps = state => ({
+    user: state.auth.user
+})
+
+export default connect(mapStateToProps, { addCourse })(AddCourse)

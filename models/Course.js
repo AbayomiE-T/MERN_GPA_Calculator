@@ -23,6 +23,10 @@ const CourseSchema = new Schema({
         type: Number,
         required: true
     },
+    user_id: {
+        type: String,
+        require: true
+    },
     date: {
         type: Date,
         default: Date.now

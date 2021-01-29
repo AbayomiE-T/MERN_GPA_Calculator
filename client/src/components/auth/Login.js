@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 
 import { connect } from 'react-redux';
 import { login } from '../../actions/authActions'
@@ -30,27 +30,28 @@ const Login = ({ isAuthenticated, error, login, clearErrors }) => {
     }
 
     return (
-        <>
-            {msg ? <p>{msg}</p> : ''}
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    placeholder="Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                />
+        isAuthenticated ? <Redirect to="/" /> :
+            <>
+                {msg ? <p>{msg}</p> : ''}
+                <form onSubmit={handleSubmit}>
+                    <input
+                        type="text"
+                        placeholder="Email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
 
-                <input
-                    type="text"
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-                <button>Login</button>
-                <p>Don't have an account?
+                    <input
+                        type="text"
+                        placeholder="Password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                    <button>Login</button>
+                    <p>Don't have an account?
                 <Link to="/register">Register</Link></p>
-            </form>
-        </>
+                </form>
+            </>
     )
 }
 

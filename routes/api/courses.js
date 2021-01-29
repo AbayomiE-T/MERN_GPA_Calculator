@@ -9,8 +9,8 @@ const Course = require('../../models/Course');
 // @desc Get All Items
 // @access Public
 
-router.get('/', (req, res) => {
-    Course.find()
+router.get('/:id', (req, res) => {
+    Course.find({ user_id: req.params.id })
         .sort({ date: -1 })
         .then(items => res.json(items))
 })
@@ -25,7 +25,8 @@ router.post('/', auth, (req, res) => {
         courseCode: req.body.courseCode,
         creditValue: req.body.creditValue,
         grade: req.body.grade,
-        gradePoint: req.body.gradePoint
+        gradePoint: req.body.gradePoint,
+        user_id: req.body.user_id
     });
 
     newCourse.save().then(course => res.json(course))

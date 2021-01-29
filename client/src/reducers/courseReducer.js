@@ -1,4 +1,4 @@
-import { GET_COURSES, ADD_COURSE, DELETE_COURSE, COURSES_LOADING } from '../actions/types'
+import { GET_COURSES, ADD_COURSE, DELETE_COURSE, COURSES_LOADING, CLEAR_COURSES } from '../actions/types'
 
 const initialState = {
     courses: [],
@@ -34,6 +34,12 @@ export default function courseReducer(state = initialState, action) {
             return {
                 ...state,
                 loading: true
+            }
+
+        case CLEAR_COURSES:
+            return {
+                ...state,
+                courses: [],
             }
 
         default:

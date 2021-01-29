@@ -2,13 +2,17 @@ import React, { useEffect } from 'react';
 import { getCourses, deleteCourse } from '../actions/courseActions'
 import { connect } from 'react-redux';
 
-const CourseList = ({ courses, getCourses, deleteCourse }) => {
+const CourseList = ({ courses, getCourses, deleteCourse, user }) => {
 
     useEffect(() => {
-        getCourses();
-    }, [getCourses, deleteCourse])
+        if (user) {
+            console.log(user, user._id);
+            getCourses(user._id);
+        }
 
-    const courseList = courses.map(({ _id, name, courseCode, creditValue, grade, gradePoint }) => {
+    }, [getCourses, deleteCourse, user])
+
+    const courseList = courses ? courses.map(({ _id, name, courseCode, creditValue, grade, gradePoint }) => {
         return (
             <div key={_id}>
                 <p>{name}</p>
@@ -21,7 +25,7 @@ const CourseList = ({ courses, getCourses, deleteCourse }) => {
                 }} style={{ color: 'red' }}>&times;</button>
             </div>
         )
-    })
+    }) : (<p> Loading courses</p>)
     return (
         <div>
             <div>
@@ -32,7 +36,9 @@ const CourseList = ({ courses, getCourses, deleteCourse }) => {
 }
 
 const mapStateToProps = state => ({
-    courses: state.courseCollection.courses
+    courses: state.courseCollection.courses,
+    isLoading: state.courseCollection.loading,
+    user: state.auth.user
 })
 
 export default connect(mapStateToProps, { getCourses, deleteCourse })(CourseList)
