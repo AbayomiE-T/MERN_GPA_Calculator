@@ -57,7 +57,7 @@ const Login = ({ isAuthenticated, error, login, clearErrors }) => {
                                 <div className="form-item">
 
                                     <input
-                                        type="text"
+                                        type="password"
                                         placeholder="Password"
                                         value={password}
                                         onChange={(e) => setPassword(e.target.value)}

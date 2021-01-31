@@ -65,7 +65,7 @@ const Register = ({ isAuthenticated, error, register, clearErrors }) => {
                                 </div>
                                 <div className="form-item">
                                     <input
-                                        type="text"
+                                        type="password"
                                         placeholder="Password"
                                         value={password}
                                         onChange={(e) => setPassword(e.target.value)}
