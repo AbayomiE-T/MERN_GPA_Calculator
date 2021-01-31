@@ -1,5 +1,4 @@
 body {
-  font-family: 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -9,8 +8,26 @@ html, body{
 }
 
 *{
+  font-family: 'Poppins', sans-serif;
   margin: 0px;
   padding: 0px;
+}
+
+.navbar{
+  background-color: #f33;
+}
+
+.navbar-brand{
+  font-size: 2rem;
+}
+
+.nav-item a{
+  color: white;
+}
+
+.nav-item:hover{
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 .login-box{
@@ -75,6 +92,7 @@ html, body{
   width: 40%;
   background-color:#f33; 
   border: none;
+  outline: none;
   border-radius: 8px;
   color: #eee;
   cursor: pointer;
@@ -94,4 +112,47 @@ html, body{
   margin-top: 32px;
   text-align: center;
 }
+
+.course-form{
+  width: 60%;
+  max-width: 666px;
+  border: 1px solid #f33;
+  padding: 20px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
+.gpa-wrapper{
+  height: 150px;
+  background-color: #f33;
+  width: 60%;
+  max-width: 666px;
+  margin-top: 60px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  position: relative;
+}
+
+.gpa{
+  position: absolute;
+  bottom: 0px;
+  right: 8px;
+  color: #eee;
+  font-size: 3rem;
+}
+
+@media only screen and (max-width:600px){
+  .gpa-wrapper{
+    width: 90%;
+  }
+
+  .course-form{
+    width: 90%;
+  }
+  
+}
+
+
 

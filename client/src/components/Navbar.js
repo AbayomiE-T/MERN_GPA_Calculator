@@ -13,20 +13,22 @@ const Navbar = ({ isAuthenticated, user, logout, clearCourses }) => {
     }
 
     const authLinks = (
-        <ul className="nav-items">
-            <li className="nav-item">
-                <span><strong>{user ? `Welcome ${user.name}` : ''}</strong></span>
-            </li>
-            <li className="nav-item">
-                <Link to="/">Add Course</Link>
-            </li>
-            <li className="nav-item">
-                <Link to="/courses">Courses</Link>
-            </li>
-            <li onClick={handleClick} className="nav-item">
-                <span>Logout</span>
-            </li>
-        </ul>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav ml-auto">
+                <li className="nav-item">
+                    <span className="nav-link"><strong>{user ? `Welcome back ${user.name}` : ''}</strong></span>
+                </li>
+                <li className="nav-item">
+                    <Link className="nav-link" to="/">Add Course</Link>
+                </li>
+                <li className="nav-item">
+                    <Link className="nav-link" to="/courses">Courses</Link>
+                </li>
+                <li className="nav-item" onClick={handleClick}>
+                    <span className="nav-link logout">Logout</span>
+                </li>
+            </ul>
+        </div>
     )
 
     const guestLinks = (
@@ -41,19 +43,14 @@ const Navbar = ({ isAuthenticated, user, logout, clearCourses }) => {
     )
 
     return (
-        <nav>
-            <div className="logo">
-                <h1><a href="/#home">CUgpa</a>
-                </h1>
-            </div>
+
+        <nav className="navbar navbar-expand-md text-white">
+            <span className="navbar-brand mb-0 h1">CUgpa <i class="fas fa-book"></i></span>
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i className="fas fa-bars" style={{ color: '#fff' }}></i>
+            </button>
 
             {isAuthenticated ? authLinks : guestLinks}
-
-            <div className="burger">
-                <div className="line1"></div>
-                <div className="line2"></div>
-                <div className="line3"></div>
-            </div>
         </nav>
     )
 }
