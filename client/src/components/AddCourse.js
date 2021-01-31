@@ -18,14 +18,15 @@ const AddCourse = ({ addCourse, user, getCourses, courses }) => {
             getCourses(user._id);
         }
 
-    }, [getCourses, user, gpa])
-
-    useEffect(() => {
         if (localStorage.getItem('gpa')) {
             setGpa(localStorage.getItem('gpa'))
         }
 
-    }, [])
+    }, [getCourses, user])
+
+    useEffect(() => {
+        setGpa(calculateGPA(courses));
+    }, [courses, gpa])
 
     const handleSubmit = (e) => {
         e.preventDefault();

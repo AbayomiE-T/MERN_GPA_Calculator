@@ -15,25 +15,38 @@ const CourseList = ({ courses, getCourses, deleteCourse, user }) => {
 
     const courseList = courses ? courses.map(({ _id, name, courseCode, creditValue, grade, gradePoint }) => {
         return (
-            <div key={_id}>
-                <p>{name}</p>
-                <p>{courseCode}</p>
-                <p>{creditValue}</p>
-                <p>{grade}</p>
-                <p>{gradePoint}</p>
-                <button onClick={() => {
+            <tr key={_id}>
+                <td>{name}</td>
+                <td>{courseCode}</td>
+                <td>{creditValue}</td>
+                <td>{grade}</td>
+                <td>{gradePoint}</td>
+                <td><button className="btn btn-danger btn-sm" onClick={() => {
                     deleteCourse(_id);
-                }} style={{ color: 'red' }}>&times;</button>
-            </div>
+                }}>Delete</button></td>
+            </tr>
         )
     }) : (<p> Loading courses</p>)
     return (
-        <div>
-            <Navbar />
-            <div>
-                {courseList}
-            </div>
-        </div>
+        <>
+            <Navbar styles="navbar-min-width" />
+            <p style={{ marginTop: '60px' }}>Take a look at your course history here.</p>
+            <table className="table table-dark" style={{ marginTop: "60px" }}>
+                <thead>
+                    <tr>
+                        <th>Course Title</th>
+                        <th>Course Code</th>
+                        <th>Credit Value</th>
+                        <th>Grade</th>
+                        <th>Quality Points</th>
+                        <th />
+                    </tr>
+                </thead>
+                <tbody>
+                    {courseList}
+                </tbody>
+            </table>
+        </>
     )
 }
 

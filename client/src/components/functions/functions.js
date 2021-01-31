@@ -7,10 +7,7 @@ export const calculateGPA = (courses) => {
         totalGradePoints += parseFloat(courses[i].gradePoint);
     }
 
-    console.log(totalCred, typeof totalCred);
-    console.log(totalGradePoints, typeof totalGradePoints);
-    console.log("totalCred", totalCred);
-    console.log("totalGradePoints", totalGradePoints)
+    if (totalCred === 0) return 0;
 
     const gpa = totalGradePoints / totalCred
     return (gpa.toFixed(1));

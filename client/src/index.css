@@ -42,8 +42,13 @@ body {
   flex-direction: column;
 }
 
+.vertical-box h1{
+  text-align: center;
+}
+
 .vertical-box p{
   margin-top: 40px;
+  text-align: center;
 }
 
 .sign-up-box{
@@ -139,6 +144,35 @@ body {
   font-size: 3rem;
 }
 
+.container{
+  padding-bottom: 60px;
+}
+
+.navbar-min-width{
+  min-width: 520px;
+}
+
+@media only screen and (max-width: 890px){
+  .login-box, .sign-up-box{
+    flex-direction: column;
+  }
+
+  .sign-up-box .vertical-box{
+    height: 40vh;
+  }
+
+  .vertical-box{
+    height: 40%;
+    width: 100%;
+  }
+
+  .signup-content{
+    height: 60%;
+    width: 100%;
+  }
+
+}
+
 @media only screen and (max-width:600px){
   .gpa-wrapper{
     width: 90%;
@@ -147,8 +181,26 @@ body {
   .course-form{
     width: 90%;
   }
-  
+
+  .form-wrapper{
+    width: 80%;
+  }
 }
 
+@media only screen and (max-width:400px){
+  .sign-up-box{
+    height: auto;
+    min-height: 100vh;
+  }
+  .sign-up-box .signup-content{
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  .sign-up-box .signup-content .form-wrapper{
+    margin: auto;
+  }
+
+}
 
 

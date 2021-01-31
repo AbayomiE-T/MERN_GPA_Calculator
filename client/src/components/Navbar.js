@@ -5,12 +5,14 @@ import { logout } from '../actions/authActions'
 import { clearCourses } from '../actions/courseActions'
 import { connect } from 'react-redux';
 
-const Navbar = ({ isAuthenticated, user, logout, clearCourses }) => {
+const Navbar = ({ isAuthenticated, user, logout, clearCourses, styles }) => {
 
     const handleClick = () => {
         logout();
         clearCourses();
     }
+
+    const navBarStyles = `navbar navbar-expand-md text-white ${styles}`;
 
     const authLinks = (
         <div className="collapse navbar-collapse" id="navbarNav">
@@ -44,7 +46,7 @@ const Navbar = ({ isAuthenticated, user, logout, clearCourses }) => {
 
     return (
 
-        <nav className="navbar navbar-expand-md text-white">
+        <nav className={navBarStyles}>
             <span className="navbar-brand mb-0 h1">CUgpa <i className="fas fa-book"></i></span>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <i className="fas fa-bars" style={{ color: '#fff' }}></i>
