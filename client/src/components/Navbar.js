@@ -13,7 +13,7 @@ const Navbar = ({ isAuthenticated, user, logout, clearCourses }) => {
     }
 
     const authLinks = (
-        <div class="collapse navbar-collapse" id="navbarNav">
+        <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ml-auto">
                 <li className="nav-item">
                     <span className="nav-link"><strong>{user ? `Welcome back ${user.name}` : ''}</strong></span>
@@ -45,7 +45,7 @@ const Navbar = ({ isAuthenticated, user, logout, clearCourses }) => {
     return (
 
         <nav className="navbar navbar-expand-md text-white">
-            <span className="navbar-brand mb-0 h1">CUgpa <i class="fas fa-book"></i></span>
+            <span className="navbar-brand mb-0 h1">CUgpa <i className="fas fa-book"></i></span>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <i className="fas fa-bars" style={{ color: '#fff' }}></i>
             </button>
