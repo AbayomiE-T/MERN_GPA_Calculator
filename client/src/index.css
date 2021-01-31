@@ -13,8 +13,17 @@ body {
   background-color: #f33;
 }
 
+nav > a{
+  color: white;
+}
+
+nav > a:hover{
+  color: white;
+}
+
 .navbar-brand{
   font-size: 2rem;
+  cursor: pointer;
 }
 
 .nav-item a{

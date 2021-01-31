@@ -47,7 +47,7 @@ const Navbar = ({ isAuthenticated, user, logout, clearCourses, styles }) => {
     return (
 
         <nav className={navBarStyles}>
-            <span className="navbar-brand mb-0 h1">CUgpa <i className="fas fa-book"></i></span>
+            <Link to="/"><span className="navbar-brand mb-0 h1">CUgpa <i className="fas fa-book"></i></span></Link>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <i className="fas fa-bars" style={{ color: '#fff' }}></i>
             </button>
