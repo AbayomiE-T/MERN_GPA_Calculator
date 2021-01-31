@@ -18,7 +18,7 @@ const Navbar = ({ isAuthenticated, user, logout, clearCourses, styles }) => {
         <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ml-auto">
                 <li className="nav-item">
-                    <span className="nav-link"><strong>{user ? `Welcome back ${user.name}` : ''}</strong></span>
+                    <span className="nav-link"><strong>{user ? `Welcome ${user.name}` : ''}</strong></span>
                 </li>
                 <li className="nav-item">
                     <Link className="nav-link" to="/">Add Course</Link>
